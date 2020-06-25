@@ -2,7 +2,7 @@
 	"projects": [
 		{
 			"name": "Personal Portfolio",
-			"url": "https://github.com/oyeshubhu/Portfolio",
+			"url": "https://github.com/swpril/Portfolio",
 			"description": "Made a personal website using Gatsby and Material-UI and deployed on Netlify."
 		}
 	]
