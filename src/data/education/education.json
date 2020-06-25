@@ -1,0 +1,28 @@
+{
+  "education": [
+    {
+      "institution": "Rajasthan Technical University, Kota",
+      "degree": "Masters of Computer Applications (MCA)",
+      "startDate": "August 2017",
+      "endDate": "June 2020"
+    },
+    {
+      "institution": "Maharaja Ganga Singh University, Bikaner",
+      "degree": "Bachelor of Science (B.Sc)",
+      "startDate": "August 2014",
+      "endDate": "July 2017"
+    },
+    {
+      "institution": "Board of Secondary Education Rajasthan, Ajmer",
+      "degree": "Senior Secondary (SSC)",
+      "startDate": "May 2013",
+      "endDate": "May 2014"
+    },
+    {
+      "institution": "Board of Secondary Education Rajasthan, Ajmer",
+      "degree": "Higher Secondary (HSC)",
+      "startDate": "May 2011",
+      "endDate": "June 2012"
+    }
+  ]
+}
