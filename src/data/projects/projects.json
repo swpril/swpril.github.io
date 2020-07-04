@@ -3,7 +3,12 @@
 		{
 			"name": "Personal Portfolio",
 			"url": "https://github.com/swpril/Portfolio",
-			"description": "Made a personal website using Gatsby and Material-UI and deployed on Netlify."
+			"description": "This project is developed in Gatsby as a part of learning Gatsby and deployed on github-pages."
+		},
+		{
+			"name": "The Color Store",
+			"url": "https://github.com/swpril/The-Color-Store",
+			"description": "The Color Store is a clone of Flat UI Colors. Where users can choose colors from 175+ preloaded colors and can create their own palette."
 		}
 	]
 }

@@ -2,11 +2,12 @@ import React from 'react';
 import { Grid, Typography, IconButton } from '@material-ui/core';
 import { useStaticQuery, graphql } from 'gatsby';
 import profile from '../images/profile.svg';
+import TCS from '../images/TCS.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import useStyles from '../styles/projects';
 
-const image = [profile];
+const image = [profile, TCS];
 
 const Projects = () => {
 
