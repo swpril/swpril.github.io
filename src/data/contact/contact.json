@@ -1,28 +1,28 @@
 {
-	"contacts": [
-		{
-			"name": "LinkedIn",
-			"url": "https://www.linkedin.com/in/swpril/"
-		},
-		{
-			"name": "GitHub",
-			"url": "https://github.com/swpril"
-		},
-		{
-			"name": "Instagram",
-			"url": "https://www.instagram.com/oyeshubhu/"
-		},
-		{
-			"name": "StackOverflow",
-			"url": "https://stackoverflow.com/users/9965017/swpril"
-		},
-		{
-			"name": "Quora",
-			"url": "https://www.quora.com/profile/Swpril-Ahuja"
-		},
-		{
-			"name": "Email",
-			"url": "mailto:ahuja.s0007@gmail.com"
-		}
-	]
+  "contacts": [
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/swpril/"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/swpril"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/oyeshubhu/"
+    },
+    {
+      "name": "StackOverflow",
+      "url": "https://stackoverflow.com/users/9965017/swpril"
+    },
+    {
+      "name": "Quora",
+      "url": "https://www.quora.com/profile/Swpril-Ahuja"
+    },
+    {
+      "name": "Email",
+      "url": "mailto:ahuja.s0007@gmail.com"
+    }
+  ]
 }
