@@ -6,6 +6,7 @@ import {
   ProjectComponent,
   ContactComponent,
   FooterComponent,
+  ExperienceComponent,
   Layout,
   SEO
 } from '../components';
@@ -17,6 +18,7 @@ const IndexPage = () => {
     <Layout getDarkMode={isDarkMode => setDarkMode(isDarkMode)}>
       <SEO title='Full Stack Engineer' />
       <AboutComponent darkMode={darkMode} />
+      <ExperienceComponent darkMode={darkMode} />
       <EducationComponent darkMode={darkMode} />
       <ProjectComponent darkMode={darkMode} />
       <ContactComponent darkMode={darkMode} />

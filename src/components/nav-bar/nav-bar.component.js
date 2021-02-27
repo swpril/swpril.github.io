@@ -43,6 +43,7 @@ const NavBarComponent = ({ isDarkMode }) => {
               className={`font-raleway lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-semibold items-center justify-center ${
                 darkMode ? 'text-white' : 'text-gray-800'
               }`}
+              onClick={() => scrollToSection('#experience')}
             >
               Experience
               <span role='img' aria-label='about'>
