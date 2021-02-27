@@ -6,6 +6,9 @@ const NavBarComponent = ({ isDarkMode }) => {
   const [darkMode, setDarkMode] = useState(false);
   const [active, setActive] = useState(false);
 
+  const resumeUrl =
+    'https://drive.google.com/file/d/1P4SrvLULuL0gT_s1e9sxJCIxRQf07b8h/view?usp=sharing';
+
   const scrollToSection = sectionId => scrollTo(sectionId);
   const handleClick = () => setActive(!active);
 
@@ -86,6 +89,17 @@ const NavBarComponent = ({ isDarkMode }) => {
                 📞
               </span>
             </a>
+            <button
+              className={`border border-yellow-500 px-3 py-2 rounded font-semibold items-center justify-center hover:bg-orange-bg hover:text-${
+                darkMode ? 'black' : 'white'
+              } ${darkMode ? 'text-white' : 'text-gray-800'} ${
+                active ? 'mb-2' : ''
+              }`}
+              onClick={() => window.open(resumeUrl)}
+              type='button'
+            >
+              Resume
+            </button>
             <div className='flex items-center justify-center px-3'>
               <label
                 htmlFor='toggle'
