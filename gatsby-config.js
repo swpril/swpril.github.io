@@ -12,9 +12,23 @@ module.exports = {
     description: `Personal Portfolio of Swpril`,
     author: `swpril`
   },
+
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `swpril.github.io`,
+        short_name: `swpril`,
+        start_url: `/`,
+        background_color: `#FFF`,
+        theme_color: `#111827`,
+        display: `standalone`,
+        icon:`${__dirname}/src/images/profile.svg`
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
