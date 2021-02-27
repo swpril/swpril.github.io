@@ -1,15 +1,15 @@
 import React from 'react';
 
-import useStyles from './footer.styles';
-
-const Footer = () => {
-  const classes = useStyles();
-
+const FooterComponent = ({ darkMode }) => {
   return (
-    <div className={classes.footerDiv}>
+    <div
+      className={`h-full flex w-100 flex-col justify-center font-raleway text-center p-4  ${
+        darkMode ? 'text-white' : 'text-black'
+      }`}
+    >
       <p>-x- Yep! This is Footer! -x-</p>
       <p>
-        It was nice to have you here, see you around!{' '}
+        It was nice to have you here, see you around!&nbsp;
         <span role='img' aria-label='bye'>
           👋
         </span>
@@ -17,12 +17,12 @@ const Footer = () => {
       <small>Copyright &copy; {new Date().getFullYear()} Swpril Ahuja.</small>
       <small>All Rights Reserved.</small>
       <small>
-        Built with{' '}
-        <span role='img' aria-label='heart' className={classes.heart}>
-          {' '}
-          ❤{' '}
-        </span>{' '}
-        <a href='https://www.gatsbyjs.org' className={classes.link}>
+        Built with&nbsp;
+        <span role='img' aria-label='heart' className='text-heart'>
+          ❤&nbsp;
+        </span>
+        &nbsp;
+        <a href='https://www.gatsbyjs.org' target='__blank'>
           Gatsby
         </a>
       </small>
@@ -30,4 +30,4 @@ const Footer = () => {
   );
 };
 
-export { Footer };
+export { FooterComponent };

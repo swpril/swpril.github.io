@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { NavBar } from '../components';
+import { NavBarComponent } from '../components';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, getDarkMode }) => {
+  const [darkMode, setDarkMode] = useState();
   return (
-    <div>
-      <NavBar />
+    <div className={`m-0 font-raleway ${darkMode ? 'bg-gray-900' : ''}`}>
+      <NavBarComponent
+        isDarkMode={isDarkModeEnabled => {
+          getDarkMode(isDarkModeEnabled);
+          setDarkMode(isDarkModeEnabled);
+        }}
+      />
       <main>{children}</main>
     </div>
   );

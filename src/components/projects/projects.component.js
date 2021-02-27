@@ -1,19 +1,13 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import { Grid, Typography, IconButton } from '@material-ui/core';
+import * as _ from 'lodash';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
-import profile from '../../images/profile.svg';
-import tcs from '../../images/tcs.png';
-import useStyles from './projects.styles';
-
-const image = [profile, tcs];
-
-const Projects = () => {
-  const data = useStaticQuery(
+const ProjectComponent = ({ darkMode }) => {
+  const projectList = useStaticQuery(
     graphql`
       query {
         projectsJson {
@@ -21,98 +15,71 @@ const Projects = () => {
             name
             url
             description
+            tech
           }
         }
       }
     `
   );
-  const classes = useStyles();
 
   return (
-    <Grid
-      container
-      direction='row'
-      justify='center'
-      alignItems='center'
-      className={classes.root}
-      id='projectId'
+    <div
+      id='projects'
+      className={`h-auto grid-flow-row p-3 font-raleway ${
+        darkMode ? 'text-white' : ''
+      }`}
     >
-      <Grid item xs={12} className={classes.titleGrid}>
-        <Typography className={classes.title}>
-          Projects{' '}
-          <span role='img' aria-label='projects'>
-            {' '}
-            💻
-          </span>
-        </Typography>
-      </Grid>
-      {data.projectsJson.projects.map((project, index) => {
+      <div className='text-center text-xl md:text-2xl p-2'>
+        <span className='tracking-wider'>Projects</span>
+        <span role='img' aria-label='projects'>
+          &nbsp;💻
+        </span>
+      </div>
+      {_.map(projectList.projectsJson.projects, (project, index) => {
         return (
-          <Grid
-            item
-            xs={12}
-            sm={10}
-            md={11}
-            container
-            justify='center'
-            className={classes.projectGrid}
-            key={index}
-          >
-            <Grid item xs={12} className={classes.paddingGrid}>
-              <img
-                src={image[index]}
-                height='125'
-                width='125'
-                alt='project-img'
-              />
-            </Grid>
-            <Grid item xs={12} className={classes.paddingGrid}>
-              <Typography className={classes.projectTitle}>
-                {project.name}
-              </Typography>
-            </Grid>
-            <Grid item xs={12} className={classes.paddingGrid}>
-              <Typography className={classes.projectDescription}>
-                {project.description}
-              </Typography>
-            </Grid>
-            <Grid item xs={12} className={classes.paddingGrid}>
-              <IconButton
-                className={classes.button}
-                href={project.url}
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <FontAwesomeIcon icon={faGithub} />
-                <Typography className={classes.gitHub}>GitHub</Typography>
-              </IconButton>
-            </Grid>
-          </Grid>
+          <div className='p-2' key={index}>
+            <div
+              className={`border h-1/5 flex md:flex-row p-4 border-${
+                darkMode ? 'white' : 'black'
+              }`}
+            >
+              <div className='w-full'>
+                <div className='text-raleway text-lg md:text-xl font-semibold'>
+                  {project.name}
+                </div>
+                <ul>
+                  {_.map(project.description, (description, i) => {
+                    return (
+                      <li
+                        key={i}
+                        className='font-medium text-base md:text-base'
+                      >
+                        - &nbsp;{description}
+                      </li>
+                    );
+                  })}
+                </ul>
+                <span className='font-semibold'>Tech:</span>
+                <span className='italic'>&nbsp;{project.tech}</span>
+                <br />
+                <button
+                  className={`bg-transparent border border-solid border-${
+                    darkMode ? 'white' : 'black'
+                  } hover:bg-${
+                    darkMode ? 'orange' : 'black'
+                  } hover:text-white p-1 rounded mt-2`}
+                  type='button'
+                  onClick={() => window.open(project.url)}
+                >
+                  <FontAwesomeIcon icon={faGithub} /> Github
+                </button>
+              </div>
+            </div>
+          </div>
         );
       })}
-      <Grid
-        item
-        xs={12}
-        sm={10}
-        md={11}
-        container
-        justify='center'
-        className={classes.gitHubGrid}
-      >
-        <IconButton
-          className={classes.profileButton}
-          href='https://github.com/oyeshubhu'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <Typography className={classes.gitHub}>
-            View my other creations on <FontAwesomeIcon icon={faGithub} />{' '}
-            Github Profile
-          </Typography>
-        </IconButton>
-      </Grid>
-    </Grid>
+    </div>
   );
 };
 
-export { Projects };
+export { ProjectComponent };

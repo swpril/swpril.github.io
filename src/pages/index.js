@@ -1,24 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
-  About,
-  Education,
-  Projects,
-  Contact,
-  Footer,
+  AboutComponent,
+  EducationComponent,
+  ProjectComponent,
+  ContactComponent,
+  FooterComponent,
   Layout,
   SEO
 } from '../components';
 
 const IndexPage = () => {
+  const [darkMode, setDarkMode] = useState();
+  useEffect(() => {}, [darkMode]);
   return (
-    <Layout>
-      <SEO title='swpril' />
-      <About />
-      <Education />
-      <Projects />
-      <Contact />
-      <Footer />
+    <Layout getDarkMode={isDarkMode => setDarkMode(isDarkMode)}>
+      <SEO title='Full Stack Engineer' />
+      <AboutComponent darkMode={darkMode} />
+      <EducationComponent darkMode={darkMode} />
+      <ProjectComponent darkMode={darkMode} />
+      <ContactComponent darkMode={darkMode} />
+      <FooterComponent darkMode={darkMode} />
     </Layout>
   );
 };

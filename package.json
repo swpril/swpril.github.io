@@ -19,11 +19,9 @@
     "@fortawesome/free-brands-svg-icons": "5.13.0",
     "@fortawesome/free-solid-svg-icons": "5.13.0",
     "@fortawesome/react-fontawesome": "0.1.9",
-    "@material-ui/core": "4.9.14",
     "crypto": "1.0.1",
     "env-cmd": "10.1.0",
     "gatsby": "2.21.37",
-    "gatsby-plugin-material-ui": "2.1.8",
     "gatsby-plugin-prefetch-google-fonts": "1.4.3",
     "gatsby-plugin-react-helmet": "3.3.2",
     "gatsby-plugin-sharp": "2.6.9",
@@ -32,13 +30,19 @@
     "gatsby-transformer-json": "2.4.3",
     "gatsby-transformer-sharp": "2.5.3",
     "gh-pages": "3.1.0",
+    "lodash": "4.17.21",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-helmet": "6.0.0",
-    "react-icons": "3.10.0"
+    "react-icons": "3.10.0",
+    "typeface-raleway": "1.1.13"
   },
   "devDependencies": {
-    "prettier": "2.0.5"
+    "autoprefixer": "10.2.4",
+    "gatsby-plugin-postcss": "3.7.0",
+    "postcss": "8.2.6",
+    "prettier": "2.0.5",
+    "tailwindcss": "2.0.3"
   },
   "repository": {
     "type": "git",

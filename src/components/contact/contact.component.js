@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { Grid, Typography } from '@material-ui/core';
+import * as _ from 'lodash';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons';
@@ -13,8 +13,6 @@ import {
   faQuora
 } from '@fortawesome/free-brands-svg-icons';
 
-import useStyles from './contact.styles';
-
 const icon = [
   faLinkedin,
   faGithub,
@@ -24,10 +22,8 @@ const icon = [
   faEnvelopeSquare
 ];
 
-const Contact = () => {
-  const classes = useStyles();
-
-  const data = useStaticQuery(
+const ContactComponent = ({ darkMode }) => {
+  const contactList = useStaticQuery(
     graphql`
       query {
         contactJson {
@@ -41,46 +37,38 @@ const Contact = () => {
   );
 
   return (
-    <Grid
-      container
-      direction='row'
-      justify='center'
-      alignItems='center'
-      id='contactId'
-      className={classes.root}
+    <div
+      id='contact'
+      className={`h-auto p-3 font-raleway ${darkMode ? 'text-white ' : ''}`}
     >
-      <Grid item xs={12} className={classes.titleGrid}>
-        <Typography className={classes.title}>
-          Love the work?Let&apos;s connect{' '}
-          <span role='img' aria-label='contact'>
-            🔗
-          </span>
-        </Typography>
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        container
-        justify='space-evenly'
-        alignItems='center'
-        className={classes.contactGrid}
-      >
-        {data.contactJson.contacts.map((contact1, index) => {
+      <div className='text-center text-lg md:text-2xl p-2'>
+        <span className='tracking-widest'>
+          Love the work?Let&apos;s connect&nbsp;
+        </span>
+        <span role='img' aria-label='contact' aria-labelledby='img'>
+          🔗
+        </span>
+      </div>
+      <div className='flex flex-no-wrap justify-evenly align-items-center p-2'>
+        {_.map(contactList.contactJson.contacts, (contact, index) => {
           return (
-            <a
-              target='_blank'
-              rel='noopener noreferrer'
-              href={contact1.url}
-              className={classes.icons}
+            <button
+              className={`bg-transparent border border-solid border-${
+                darkMode ? 'white' : 'black'
+              } hover:bg-${
+                darkMode ? 'orange' : 'black'
+              } hover:text-white px-4 py-2 rounded mt-2 mx-1 text-base md:text-2xl`}
+              type='button'
               key={index}
+              onClick={() => window.open(contact.url)}
             >
               <FontAwesomeIcon icon={icon[index]} />
-            </a>
+            </button>
           );
         })}
-      </Grid>
-    </Grid>
+      </div>
+    </div>
   );
 };
 
-export { Contact };
+export { ContactComponent };

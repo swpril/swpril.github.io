@@ -1,147 +1,117 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import scrollTo from 'gatsby-plugin-smoothscroll';
 
-import {
-  AppBar,
-  Toolbar,
-  Grid,
-  Hidden,
-  Menu,
-  MenuItem,
-  Button,
-  Link,
-  Switch
-} from '@material-ui/core';
-
-const NavBar = () => {
-  let classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleClick = event => setAnchorEl(event.currentTarget);
-
-  const handleClose = () => setAnchorEl(null);
+const NavBarComponent = ({ isDarkMode }) => {
+  const [darkMode, setDarkMode] = useState(false);
+  const [active, setActive] = useState(false);
 
   const scrollToSection = sectionId => scrollTo(sectionId);
+  const handleClick = () => setActive(!active);
+
+  useEffect(() => {
+    isDarkMode(darkMode);
+  }, [darkMode]);
 
   return (
-    <AppBar position='absolute' className={classes.appBar}>
-      <Toolbar style={{ padding: 0 }}>
-        <Grid
-          container
-          direction='row'
-          justify='flex-start'
-          alignItems='center'
-          className={classes.root}
+    <div>
+      <nav
+        className={`flex items-center flex-wrap p-3 ${
+          darkMode ? 'bg-gray-800' : 'bg-light-bg'
+        }`}
+      >
+        <div className='inline-flex font-raleway font-semibold items-center p-2 mr-4 text-lg cursor-pointer md:text-2xl'>
+          <span className='text-orange'>SWPRIL &nbsp;</span>
+          <span className={darkMode ? 'text-white' : 'text-black'}> AHUJA</span>
+        </div>
+
+        <button
+          role='img'
+          aria-label='dropDown'
+          onClick={handleClick}
+          className=' inline-flex p-3 outline-none rounded focus:outline-none lg:hidden text-white ml-auto hover:text-white'
         >
-          <Grid item xs={8} sm={5} md={6} lg={6} className={classes.titleGrid}>
-            <Link className={classes.title} to='/'>
-              {' '}
-              <span className={classes.firstName}>SWPRIL</span> AHUJA
-            </Link>
-          </Grid>
-          <Hidden xsDown>
-            <Grid item xs={4} sm={7} md={6} lg={6} className={classes.menuGrid}>
-              <Link
-                className={classes.menu}
-                onClick={() => scrollToSection('#aboutId')}
+          🧷
+        </button>
+        <div
+          className={`${
+            active ? '' : 'hidden'
+          }   w-full lg:inline-flex lg:flex-grow lg:w-auto`}
+        >
+          <div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto'>
+            <a
+              className={`font-raleway lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-semibold items-center justify-center ${
+                darkMode ? 'text-white' : 'text-gray-800'
+              }`}
+            >
+              Experience
+              <span role='img' aria-label='about'>
+                🏆
+              </span>
+            </a>
+
+            <a
+              className={`cursor-pointer font-raleway lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-semibold items-center justify-center ${
+                darkMode ? 'text-white' : 'text-gray-800'
+              }`}
+              onClick={() => scrollToSection('#education')}
+            >
+              Education
+              <span role='img' aria-label='about'>
+                📖
+              </span>
+            </a>
+
+            <a
+              className={`font-raleway lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-semibold items-center justify-center ${
+                darkMode ? 'text-white' : 'text-gray-800'
+              }`}
+              onClick={() => scrollToSection('#projects')}
+            >
+              Projects
+              <span role='img' aria-label='about'>
+                💻
+              </span>
+            </a>
+
+            <a
+              className={`font-raleway lg:inline-flex lg:w-auto w-full px-3 py-2 rounded font-semibold items-center justify-center ${
+                darkMode ? 'text-white' : 'text-gray-800'
+              }`}
+              onClick={() => scrollToSection('#contact')}
+            >
+              Contact
+              <span role='img' aria-label='about'>
+                📞
+              </span>
+            </a>
+            <div className='flex items-center justify-center px-3'>
+              <label
+                htmlFor='toggle'
+                className='flex items-center cursor-pointer'
               >
-                About
-                <span role='img' aria-label='about'>
-                  👦
-                </span>
-              </Link>
-              <Link
-                className={classes.menu}
-                onClick={() => {
-                  scrollToSection('#projectId');
-                }}
-              >
-                Projects
-                <span role='img' aria-label='projects'>
-                  💻
-                </span>
-              </Link>
-              <Link
-                className={classes.menu}
-                onClick={() => {
-                  scrollToSection('#contactId');
-                }}
-              >
-                Contact
-                <span role='img' aria-label='contact'>
-                  📞
-                </span>
-              </Link>
-            </Grid>
-          </Hidden>
-          <Hidden only={['sm', 'md', 'lg', 'xl']}>
-            <Grid item xs={4} style={{ textAlign: 'end' }}>
-              <Button
-                aria-controls='simple-menu'
-                aria-haspopup='true'
-                onClick={handleClick}
-                style={{ paddingRight: 0, paddingLeft: 0 }}
-              >
-                <span role='img' aria-label='dropDown'>
-                  🧷
-                </span>
-              </Button>
-              <Menu
-                id='simple-menu'
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-              >
-                <MenuItem
-                  onClick={handleClose}
-                  className={classes.dropDown}
-                  component={Link}
-                  onClick={() => {
-                    scrollToSection('#aboutId');
-                  }}
-                >
-                  About
-                  <span role='img' aria-label='about'>
-                    {' '}
-                    👦
-                  </span>
-                </MenuItem>
-                <MenuItem
-                  onClick={handleClose}
-                  className={classes.dropDown}
-                  component={Link}
-                  onClick={() => {
-                    scrollToSection('#projectId');
-                  }}
-                >
-                  Projects
-                  <span role='img' aria-label='projects'>
-                    {' '}
-                    💻
-                  </span>
-                </MenuItem>
-                <MenuItem
-                  onClick={handleClose}
-                  className={classes.dropDown}
-                  component={Link}
-                  onClick={() => {
-                    scrollToSection('#contactId');
-                  }}
-                >
-                  Contact
-                  <span role='img' aria-label='contact'>
-                    {' '}
-                    📞
-                  </span>
-                </MenuItem>
-              </Menu>
-            </Grid>
-          </Hidden>
-        </Grid>
-      </Toolbar>
-    </AppBar>
+                <div className='relative'>
+                  <input
+                    id='toggle'
+                    type='checkbox'
+                    className='hidden'
+                    value={darkMode}
+                    onClick={async () => setDarkMode(!darkMode)}
+                  />
+                  <div className='toggle__line w-10 h-4 bg-gray-400 rounded-full shadow-inner'></div>
+                  <div className='toggle__dot absolute w-6 h-6 bg-white rounded-full shadow inset-y-0 left-0'></div>
+                </div>
+              </label>
+
+              <span className='ml-2' role='img' aria-label='light'>
+                {darkMode ? '🌜' : '🌞'}
+              </span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
   );
 };
 
-export { NavBar };
+export { NavBarComponent };
