@@ -22,7 +22,6 @@
     "crypto": "1.0.1",
     "env-cmd": "10.1.0",
     "gatsby": "2.21.37",
-    "gatsby-plugin-prefetch-google-fonts": "1.4.3",
     "gatsby-plugin-react-helmet": "3.3.2",
     "gatsby-plugin-sharp": "2.6.9",
     "gatsby-plugin-smoothscroll": "1.1.0",
