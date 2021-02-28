@@ -19,7 +19,6 @@
     "@fortawesome/free-brands-svg-icons": "5.15.2",
     "@fortawesome/free-solid-svg-icons": "5.15.2",
     "@fortawesome/react-fontawesome": "0.1.14",
-    "crypto": "1.0.1",
     "env-cmd": "10.1.0",
     "gatsby": "2.32.8",
     "gatsby-plugin-manifest": "2.12.1",

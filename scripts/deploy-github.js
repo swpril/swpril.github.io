@@ -6,7 +6,5 @@ ghpages.publish(
     branch: 'master',
     repo: 'https://github.com/swpril/swpril.github.io.git'
   },
-  () => {
-    console.log('Deploy Complete!');
-  }
+  () => console.log('Deploy Complete!')
 );

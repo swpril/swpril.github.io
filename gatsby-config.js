@@ -23,12 +23,23 @@ module.exports = {
         background_color: `#FFF`,
         theme_color: `#111827`,
         display: `standalone`,
-        icon:`${__dirname}/src/images/profile.svg`
+        icons: [
+          {
+            src: `${__dirname}/src/images`,
+            sizes: `512x512`,
+            type: 'image/svg'
+          }
+        ]
       }
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`src/components/*`]
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
