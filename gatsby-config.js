@@ -19,7 +19,7 @@ module.exports = {
       options: {
         name: `swpril.github.io`,
         short_name: `swpril`,
-        start_url: `https://swpril.github.io`,
+        start_url: `/`,
         background_color: `#FFF`,
         theme_color: `#111827`,
         display: `standalone`,

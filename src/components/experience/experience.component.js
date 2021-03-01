@@ -28,7 +28,7 @@ const ExperienceComponent = ({ darkMode }) => {
     >
       <div className='text-center text-xl md:text-2xl p-2'>
         <span className='tracking-wider'>Experience</span>
-        <span role='img' aria-label='projects'>
+        <span role='img' aria-labelledby='emoji' aria-label='projects'>
           &nbsp; 🏆
         </span>
       </div>
@@ -42,7 +42,7 @@ const ExperienceComponent = ({ darkMode }) => {
             <div className='w-full'>
               {_.map(experienceList.experienceJson.experience, (exp, index) => {
                 return (
-                  <div className='flex w-full'>
+                  <div className='flex w-full' key={index}>
                     <div className='w-3/5'>
                       <span className='font-semibold text-base md:text-2xl'>
                         {exp.company}
@@ -54,7 +54,7 @@ const ExperienceComponent = ({ darkMode }) => {
                         {exp.startDate}-{exp.endDate}
                       </span>
                     </div>
-                    <div class='w-2/5 text-right '>{exp.location}</div>
+                    <div className='w-2/5 text-right '>{exp.location}</div>
                     <br />
                   </div>
                 );

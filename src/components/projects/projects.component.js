@@ -31,7 +31,7 @@ const ProjectComponent = ({ darkMode }) => {
     >
       <div className='text-center text-xl md:text-2xl p-2'>
         <span className='tracking-wider'>Projects</span>
-        <span role='img' aria-label='projects'>
+        <span role='img' aria-labelledby='emoji' aria-label='projects'>
           &nbsp;💻
         </span>
       </div>
@@ -67,7 +67,7 @@ const ProjectComponent = ({ darkMode }) => {
                     darkMode ? 'white' : 'black'
                   } hover:bg-${
                     darkMode ? 'orange' : 'black'
-                  } hover:text-white p-1 rounded mt-2`}
+                  } hover:text-white p-1 rounded mt-2 focus:outline-none`}
                   type='button'
                   onClick={() => window.open(project.url)}
                 >

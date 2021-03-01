@@ -29,7 +29,7 @@ const EducationComponent = ({ darkMode }) => {
     >
       <div className='text-center text-xl md:text-2xl p-2'>
         <span className='tracking-wider'>Education</span>
-        <span role='img' aria-label='projects'>
+        <span role='img' aria-labelledby='emoji' aria-label='projects'>
           &nbsp; 📖
         </span>
       </div>
@@ -43,7 +43,7 @@ const EducationComponent = ({ darkMode }) => {
             <div className='w-full'>
               {_.map(educationList.educationJson.education, (edu, index) => {
                 return (
-                  <div className='flex w-full'>
+                  <div className='flex w-full' key={index}>
                     <div className='w-3/4'>
                       <span className='font-semibold text-base md:text-2xl'>
                         {edu.institution}
@@ -55,7 +55,7 @@ const EducationComponent = ({ darkMode }) => {
                         {edu.startDate}-{edu.endDate}
                       </span>
                     </div>
-                    <div class='w-1/4 text-right '>{edu.location}</div>
+                    <div className='w-1/4 text-right '>{edu.location}</div>
                     <br />
                   </div>
                 );

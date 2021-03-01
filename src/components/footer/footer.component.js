@@ -10,7 +10,7 @@ const FooterComponent = ({ darkMode }) => {
       <p>-x- Yep! This is Footer! -x-</p>
       <p>
         It was nice to have you here, see you around!&nbsp;
-        <span role='img' aria-label='bye'>
+        <span role='img' aria-labelledby='emoji' aria-label='bye'>
           👋
         </span>
       </p>
@@ -18,7 +18,7 @@ const FooterComponent = ({ darkMode }) => {
       <small>All Rights Reserved.</small>
       <small>
         Built with&nbsp;
-        <span role='img' aria-label='heart' className='text-heart'>
+        <span role='img' aria-labelledby='emoji' aria-label='heart' className='text-heart'>
           ❤&nbsp;
         </span>
         &nbsp;

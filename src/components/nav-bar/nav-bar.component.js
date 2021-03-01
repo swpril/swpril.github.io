@@ -49,7 +49,7 @@ const NavBarComponent = ({ isDarkMode }) => {
               onClick={() => scrollToSection('#experience')}
             >
               Experience
-              <span role='img' aria-label='about'>
+              <span role='img' aria-labelledby='emoji' aria-label='about'>
                 🏆
               </span>
             </a>
@@ -61,7 +61,7 @@ const NavBarComponent = ({ isDarkMode }) => {
               onClick={() => scrollToSection('#education')}
             >
               Education
-              <span role='img' aria-label='about'>
+              <span role='img' aria-labelledby='emoji' aria-label='about'>
                 📖
               </span>
             </a>
@@ -73,7 +73,7 @@ const NavBarComponent = ({ isDarkMode }) => {
               onClick={() => scrollToSection('#projects')}
             >
               Projects
-              <span role='img' aria-label='about'>
+              <span role='img' aria-labelledby='emoji' aria-label='about'>
                 💻
               </span>
             </a>
@@ -85,12 +85,12 @@ const NavBarComponent = ({ isDarkMode }) => {
               onClick={() => scrollToSection('#contact')}
             >
               Contact
-              <span role='img' aria-label='about'>
+              <span role='img' aria-labelledby='emoji' aria-label='about'>
                 📞
               </span>
             </a>
             <button
-              className={`border border-yellow-500 px-3 py-2 rounded font-semibold items-center justify-center hover:bg-orange-bg hover:text-${
+              className={`border border-yellow-500 focus:outline-none px-3 py-2 rounded font-semibold items-center justify-center hover:bg-orange-bg hover:text-${
                 darkMode ? 'black' : 'white'
               } ${darkMode ? 'text-white' : 'text-gray-800'} ${
                 active ? 'mb-2' : ''

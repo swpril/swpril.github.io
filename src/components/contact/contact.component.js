@@ -45,7 +45,7 @@ const ContactComponent = ({ darkMode }) => {
         <span className='tracking-widest'>
           Love the work?Let&apos;s connect&nbsp;
         </span>
-        <span role='img' aria-label='contact' aria-labelledby='img'>
+        <span role='img' aria-labelledby='emoji' aria-label='contact' aria-labelledby='img'>
           🔗
         </span>
       </div>
@@ -57,7 +57,7 @@ const ContactComponent = ({ darkMode }) => {
                 darkMode ? 'white' : 'black'
               } hover:bg-${
                 darkMode ? 'orange' : 'black'
-              } hover:text-white px-4 py-2 rounded mt-2 mx-1 text-base md:text-2xl`}
+              } hover:text-white px-4 py-2 rounded mt-2 mx-1 text-base md:text-2xl focus:outline-none`}
               type='button'
               key={index}
               onClick={() => window.open(contact.url)}

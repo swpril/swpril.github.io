@@ -18,7 +18,7 @@ const AboutComponent = ({ darkMode }) => {
             <span className={`${darkMode ? 'text-white' : 'text-black'}`}>
               &nbsp; Hello Hola, नमस्ते&nbsp;
             </span>
-            <span role='img' aria-label='hello'>
+            <span role='img' aria-label='hello' aria-labelledby='emoji'>
               👋
             </span>
             &nbsp;
