@@ -56,7 +56,7 @@ const ContactComponent = ({ darkMode }) => {
               className={`bg-transparent border border-solid border-${
                 darkMode ? 'white' : 'black'
               } hover:bg-${
-                darkMode ? 'orange' : 'black'
+                darkMode ? 'orange-bg' : 'black'
               } hover:text-white px-4 py-2 rounded mt-2 mx-1 text-base md:text-2xl focus:outline-none`}
               type='button'
               key={index}
